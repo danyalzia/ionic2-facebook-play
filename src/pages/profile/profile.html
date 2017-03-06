@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+  	<ion-title>
+  		User Profile
+  	</ion-title>
+    	<ion-buttons end>
+    		<button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    	</ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf='userIsReady'>
+  <ion-item>
+    <ion-label>Name: {{profile.name}} </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Gender: {{profile.gender}} </ion-label><br>
+  </ion-item>
+  <ion-item>
+    <ion-label>Profile picture:</ion-label>
+  </ion-item>
+  <ion-item>
+    <img [src]="profile.picture">
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <button ion-button block (click)="logout()">Logout</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Facebook Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>You need to Login to enable more features</h1>
+  <button ion-button full color="secondary" (click)="login()">Login</button>
+  
+  <div *ngIf = "isLogged">
+    <button ion-button full color="light" (click)="getDetails()">Get User Details</button>
+	<button ion-button full color="dark" (click)="getBirthday()">Get Birthday</button>
+    <button ion-button full color="dark" (click)="post()">Post</button>
+	<button ion-button full color="dark" (click)="publishPhoto()">Publish Photo</button>
+	<button ion-button full color="danger" (click)="logout()">Logout</button>
+  </div>
+</ion-content>

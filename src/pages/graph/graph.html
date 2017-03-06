@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Graph API Posts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Input Page Link:</h1>
+  <ion-input type="text" [(ngModel)]=pagelink></ion-input>
+  <button full ion-button color="secondary" (click)="saveLink()">Save</button> 
+  
+  <div *ngFor="let post of data | async">
+    <ion-card *ngIf="post.photos.length > 0">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="http://graph.facebook.com/{{post.from.id}}/picture" />
+        </ion-avatar>
+        <h2>{{ post.from.name }}</h2>
+        <p>{{ post.time | date:'medium' }}</p>
+		 <p>{{ post.id }}</p>
+      </ion-item>
+      <img [src]="post.photos[0].src" />
+      <ion-card-content>
+        <p>{{ post.message }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
